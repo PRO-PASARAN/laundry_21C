@@ -27,7 +27,10 @@ return [
     */
 
     'env' => env('APP_ENV', 'production'),
-
+    'providers' => [
+        // ...
+        App\Providers\JWTServiceProvider::class,
+    ],
     /*
     |--------------------------------------------------------------------------
     | Application Debug Mode

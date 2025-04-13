@@ -3,6 +3,8 @@
 namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
+use Illuminate\View\Compilers\BladeCompiler;
+use Illuminate\Filesystem\Filesystem;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -11,7 +13,11 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        //
+        if (! $this->app->bound('blade.compiler')) {
+            $this->app->singleton('blade.compiler', function ($app) {
+                return new BladeCompiler(new Filesystem, $app['config']['view.compiled']);
+            });
+        }
     }
 
     /**
