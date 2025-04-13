@@ -1,22 +1,21 @@
 <?php
 
-use App\Http\Controllers\AuthController;
 use App\Http\Livewire\AdminAppointments;
 use App\Http\Livewire\StudentAppointments;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Auth\LoginRegisterController;
 
-Route::get('/', function () {
-    return view('welcome');
+Route::controller(LoginRegisterController::class)->group(function() {
+    Route::get('/register', 'register')->name('register');
+    Route::post('/store', 'store')->name('store');
+    Route::get('/login', 'login')->name('login');
+    Route::post('/authenticate', 'authenticate')->name('authenticate');
+    Route::get('/home', 'home')->name('home');
+    Route::post('/logout', 'logout')->name('logout');
 });
 
-Route::post('/login', [AuthController::class, 'login']);
-Route::post('/register', [AuthController::class, 'register']);
-
-Route::middleware('jwt')->group(function () {
-    Route::get('/me', [AuthController::class, 'me']);
-    Route::post('/logout', [AuthController::class, 'logout']);
-});
-Route::middleware(['auth'])->group(function () {
-    Route::get('/student-appointments', StudentAppointments::class)->name('student.appointments');
-    Route::get('/admin-appointments', AdminAppointments::class)->name('admin.appointments');
-});
+//
+//Route::middleware(['auth'])->group(function () {
+//    Route::get('/student-appointments', StudentAppointments::class)->name('student.appointments');
+//    Route::get('/admin-appointments', AdminAppointments::class)->name('admin.appointments');
+//});
