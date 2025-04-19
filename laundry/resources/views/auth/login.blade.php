@@ -8,7 +8,7 @@
                     Sign in to your account
                 </h2>
                 <p class="mt-4 text-base font-normal leading-7 text-gray-600 lg:text-lg lg:mt-6 lg:leading-8">
-                    Clarity gives you the blocks and components you need to create a truly professional website.
+                    Sign in to make appoinments.
                 </p>
             </div>
 
@@ -31,7 +31,7 @@
                                 id="email"
                                 placeholder="Email Address"
                                 value="{{ old('email') }}"
-                                class="block w-full px-6 py-4 text-base text-center text-gray-900 placeholder-gray-600 bg-white border border-gray-200 rounded-xl focus:bg-white focus:border-blue-600 focus:ring-1 focus:ring-blue-600 focus:outline-none @error('email') border-red-500 @enderror"
+                                class="block w-full px-6 py-4 text-base text-left text-gray-900 placeholder-gray-600 bg-white border border-gray-200 rounded-xl focus:bg-white focus:border-blue-600 focus:ring-1 focus:ring-blue-600 focus:outline-none @error('email') border-red-500 @enderror"
                             />
                             @error('email')
                             <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
@@ -45,7 +45,7 @@
                                 name="password"
                                 id="password"
                                 placeholder="Password"
-                                class="block w-full px-6 py-4 text-base text-center text-gray-900 placeholder-gray-600 bg-white border border-gray-200 rounded-xl focus:bg-white focus:border-blue-600 focus:ring-1 focus:ring-blue-600 focus:outline-none @error('password') border-red-500 @enderror"
+                                class="block w-full px-6 py-4 text-base text-left text-gray-900 placeholder-gray-600 bg-white border border-gray-200 rounded-xl focus:bg-white focus:border-blue-600 focus:ring-1 focus:ring-blue-600 focus:outline-none @error('password') border-red-500 @enderror"
                             />
                             @error('password')
                             <p class="mt-2 text-sm text-red-600">{{ $message }}</p>

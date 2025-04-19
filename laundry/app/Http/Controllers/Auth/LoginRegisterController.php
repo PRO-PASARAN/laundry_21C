@@ -40,6 +40,10 @@ class LoginRegisterController extends Controller implements HasMiddleware
         $user = User::create([
             'name' => $request->name,
             'email' => $request->email,
+            'faculty' => $request->faculty,
+            'dormitory' => $request->dormitory,
+            'floor' => $request->floor,
+            'room' => $request->room,
             'password' => Hash::make($request->password),
             'role' => 'student',      // setare implicită pentru studenți
             'is_active' => false,     // contul va fi activat de un admin
@@ -70,7 +74,7 @@ class LoginRegisterController extends Controller implements HasMiddleware
             if (!Auth::user()->is_active) {
                 Auth::logout();
                 return back()->withErrors([
-                    'email' => 'Contul tău nu a fost încă activat. Te rugăm să aștepți aprobarea unui administrator.',
+                    'email' => 'Contul tău nu a fost încă activat. Te rugăm sa mergi la administratie pentru activare.',
                 ])->onlyInput('email');
             }
             $request->session()->regenerate();

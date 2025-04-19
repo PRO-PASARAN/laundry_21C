@@ -26,7 +26,7 @@
                                 id="name"
                                 placeholder="Your Name"
                                 value="{{ old('name') }}"
-                                class="block w-full px-6 py-4 text-base text-center text-gray-900 placeholder-gray-600 bg-white border border-gray-200 rounded-xl focus:bg-white focus:border-blue-600 focus:ring-1 focus:ring-blue-600 focus:outline-none @error('name') border-red-500 @enderror"
+                                class="block w-full px-6 py-4 text-base text-left text-gray-900 placeholder-gray-600 bg-white border border-gray-200 rounded-xl focus:bg-white focus:border-blue-600 focus:ring-1 focus:ring-blue-600 focus:outline-none @error('name') border-red-500 @enderror"
                             />
                             @error('name')
                             <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
@@ -42,7 +42,7 @@
                                 id="email"
                                 placeholder="Email Address"
                                 value="{{ old('email') }}"
-                                class="block w-full px-6 py-4 text-base text-center text-gray-900 placeholder-gray-600 bg-white border border-gray-200 rounded-xl focus:bg-white focus:border-blue-600 focus:ring-1 focus:ring-blue-600 focus:outline-none @error('email') border-red-500 @enderror"
+                                class="block w-full px-6 py-4 text-base text-left text-gray-900 placeholder-gray-600 bg-white border border-gray-200 rounded-xl focus:bg-white focus:border-blue-600 focus:ring-1 focus:ring-blue-600 focus:outline-none @error('email') border-red-500 @enderror"
                             />
                             @error('email')
                             <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
@@ -58,7 +58,7 @@
                                 id="faculty"
                                 placeholder="Faculty"
                                 value="{{ old('faculty') }}"
-                                class="block w-full px-6 py-4 text-base text-center text-gray-900 placeholder-gray-600 bg-white border border-gray-200 rounded-xl focus:bg-white focus:border-blue-600 focus:ring-1 focus:ring-blue-600 focus:outline-none @error('faculty') border-red-500 @enderror"
+                                class="block w-full px-6 py-4 text-base text-left text-gray-900 placeholder-gray-600 bg-white border border-gray-200 rounded-xl focus:bg-white focus:border-blue-600 focus:ring-1 focus:ring-blue-600 focus:outline-none @error('faculty') border-red-500 @enderror"
                             />
                             @error('faculty')
                             <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
@@ -67,34 +67,37 @@
 
                         <!-- Dormitory (Camin) -->
                         <div>
-                            <label for="camin" class="sr-only">Dormitory (Camin)</label>
+                            <label for="dormitory" class="sr-only">Dormitory (Camin)</label>
                             <input
                                 type="text"
-                                name="camin"
-                                id="camin"
+                                name="dormitory"
+                                id="dormitory"
                                 placeholder="Dormitory (Camin)"
-                                value="{{ old('camin') }}"
-                                class="block w-full px-6 py-4 text-base text-center text-gray-900 placeholder-gray-600 bg-white border border-gray-200 rounded-xl focus:bg-white focus:border-blue-600 focus:ring-1 focus:ring-blue-600 focus:outline-none @error('camin') border-red-500 @enderror"
+                                value="{{ old('dormitory') }}"
+                                class="block w-full px-6 py-4 text-base text-left text-gray-900 placeholder-gray-600 bg-white border border-gray-200 rounded-xl focus:bg-white focus:border-blue-600 focus:ring-1 focus:ring-blue-600 focus:outline-none @error('camin') border-red-500 @enderror"
                             />
-                            @error('camin')
+                            @error('dormitory')
                             <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
                             @enderror
                         </div>
 
                         <!-- Floor -->
-                        <div>
-                            <label for="floor" class="sr-only">Floor</label>
-                            <input
-                                type="number"
-                                name="floor"
-                                id="floor"
-                                placeholder="Floor"
-                                value="{{ old('floor') }}"
-                                class="block w-full px-6 py-4 text-base text-center text-gray-900 placeholder-gray-600 bg-white border border-gray-200 rounded-xl focus:bg-white focus:border-blue-600 focus:ring-1 focus:ring-blue-600 focus:outline-none @error('floor') border-red-500 @enderror"
-                            />
-                            @error('floor')
-                            <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
-                            @enderror
+                        <div class="bg-gray-50 rounded-xl p-6">
+                            <label for="floor" class="block text-sm font-medium text-gray-500">
+                                Etaj
+                            </label>
+                            <div class="mt-2">
+                                <select
+                                    name="floor"
+                                    id="floor"
+                                    class="block w-full px-4 py-3 text-base text-gray-900 border border-gray-200 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                                    required
+                                >
+                                    @for($i = 0; $i <= 5; $i++)
+                                        <option value="{{ $i }}">Etajul {{ $i }}</option>
+                                    @endfor
+                                </select>
+                            </div>
                         </div>
 
                         <!-- Room -->
@@ -106,7 +109,7 @@
                                 id="room"
                                 placeholder="Room"
                                 value="{{ old('room') }}"
-                                class="block w-full px-6 py-4 text-base text-center text-gray-900 placeholder-gray-600 bg-white border border-gray-200 rounded-xl focus:bg-white focus:border-blue-600 focus:ring-1 focus:ring-blue-600 focus:outline-none @error('room') border-red-500 @enderror"
+                                class="block w-full px-6 py-4 text-base text-left text-gray-900 placeholder-gray-600 bg-white border border-gray-200 rounded-xl focus:bg-white focus:border-blue-600 focus:ring-1 focus:ring-blue-600 focus:outline-none @error('room') border-red-500 @enderror"
                             />
                             @error('room')
                             <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
@@ -121,7 +124,7 @@
                                 name="password"
                                 id="password"
                                 placeholder="Password"
-                                class="block w-full px-6 py-4 text-base text-center text-gray-900 placeholder-gray-600 bg-white border border-gray-200 rounded-xl focus:bg-white focus:border-blue-600 focus:ring-1 focus:ring-blue-600 focus:outline-none @error('password') border-red-500 @enderror"
+                                class="block w-full px-6 py-4 text-base text-left text-gray-900 placeholder-gray-600 bg-white border border-gray-200 rounded-xl focus:bg-white focus:border-blue-600 focus:ring-1 focus:ring-blue-600 focus:outline-none @error('password') border-red-500 @enderror"
                             />
                             @error('password')
                             <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
@@ -136,7 +139,7 @@
                                 name="password_confirmation"
                                 id="password_confirmation"
                                 placeholder="Confirm Password"
-                                class="block w-full px-6 py-4 text-base text-center text-gray-900 placeholder-gray-600 bg-white border border-gray-200 rounded-xl focus:bg-white focus:border-blue-600 focus:ring-1 focus:ring-blue-600 focus:outline-none"
+                                class="block w-full px-6 py-4 text-base text-left text-gray-900 placeholder-gray-600 bg-white border border-gray-200 rounded-xl focus:bg-white focus:border-blue-600 focus:ring-1 focus:ring-blue-600 focus:outline-none"
                             />
                         </div>
 

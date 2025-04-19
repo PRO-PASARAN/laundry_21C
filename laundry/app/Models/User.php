@@ -22,6 +22,7 @@ class User extends Authenticatable
         'email',
         'password',
         'faculty',
+        'dormitory',
         'room',
         'floor',
         'is_active',

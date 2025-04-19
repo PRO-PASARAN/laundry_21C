@@ -4,7 +4,6 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Appointment extends Model
 {
@@ -13,19 +12,11 @@ class Appointment extends Model
     protected $fillable = [
         'user_id',
         'floor',
-        'room',
-        'appointment_time',
-        'status'
+        'date',
+        'slot',
     ];
 
-    protected $casts = [
-        'appointment_time' => 'datetime',
-    ];
-
-    /**
-     * Get the user that owns the appointment.
-     */
-    public function user(): BelongsTo
+    public function user()
     {
         return $this->belongsTo(User::class);
     }
